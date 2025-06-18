@@ -122,10 +122,14 @@ If you later decide you want automatic activation, you can always run `conda ini
 4. Verify installation:
    ```bash
    conda --version
-   which conda
    ```
    
-   You should see the conda version and its location.
+   You should see something like:
+   ```
+   conda 24.3.0
+   ```
+   
+   Note: If you run `which conda`, you might see a shell function definition instead of a simple path. This is normal - conda uses shell functions to manage environment switching.
 
 ## Step 4: Install Mamba
 
