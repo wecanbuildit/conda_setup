@@ -117,7 +117,7 @@ If you later decide you want automatic activation, you can always run `conda ini
    eval "$(/Users/YOUR_USERNAME/miniforge3/bin/conda shell.zsh hook)"
    ```
    
-   Replace `YOUR_USERNAME` with your actual username (e.g., `ACEParking`)
+   Replace `YOUR_USERNAME` with your actual username
 
 4. Verify installation:
    ```bash
