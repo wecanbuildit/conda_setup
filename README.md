@@ -112,7 +112,7 @@ If you later decide you want automatic activation, you can always run `conda ini
    eval "$(/Users/YOUR_USERNAME/miniforge3/bin/conda shell.YOUR_SHELL_NAME hook)"
    ```
    
-   For most Macs (using zsh):
+   For M-series Macs (which use zsh by default):
    ```bash
    eval "$(/Users/YOUR_USERNAME/miniforge3/bin/conda shell.zsh hook)"
    ```
