@@ -148,12 +148,16 @@ mamba --version
 
 ### Option 1: Install with Mamba (Recommended)
 
-1. First, modify the environment file to fix compatibility issues:
+1. First, check if the environment file exists and modify it for M-series compatibility:
    ```bash
    # Navigate to SEAsnake directory if not already there
    cd ~/Desktop/SEAsnake
    
-   # Edit the environment file
+   # Check if the environment file exists
+   ls environment/
+   
+   # If Hissss_env.yaml exists, fix the compatibility issue
+   # This replaces 'adapterremoval' (incompatible with ARM64) with 'cutadapt'
    sed -i '' 's/- adapterremoval.*/- cutadapt >=5.0/' environment/Hissss_env.yaml
    ```
 
