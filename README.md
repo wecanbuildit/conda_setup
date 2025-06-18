@@ -60,7 +60,25 @@ Before starting, ensure you have:
 
 ## Step 3: Install Miniforge (Recommended for M-series Macs)
 
-For Apple Silicon Macs, we recommend Miniforge instead of Anaconda for better compatibility:
+For Apple Silicon Macs, we recommend Miniforge instead of Anaconda for better compatibility.
+
+### Why We Recommend Manual Activation for Research
+
+For researchers working on multiple projects, we recommend choosing **"no"** when asked about automatic shell initialization. Here's why:
+
+1. **Project Isolation**: Each research project often requires different package versions. Manual activation ensures you're always aware of which environment is active.
+
+2. **Prevents Cross-contamination**: Avoid accidentally installing packages in the wrong environment or using incorrect package versions.
+
+3. **Cleaner Terminal**: Your command prompt stays normal when working on non-Python tasks, reducing visual clutter.
+
+4. **Explicit Control**: You explicitly choose when to activate conda, making your workflow more intentional and reproducible.
+
+5. **Compatibility**: Some bioinformatics tools have their own Python installations. Manual activation prevents PATH conflicts.
+
+If you later decide you want automatic activation, you can always run `conda init` to enable it.
+
+### Installation Steps
 
 1. Download Miniforge for arm64 (Apple Silicon):
    ```bash
@@ -71,20 +89,43 @@ For Apple Silicon Macs, we recommend Miniforge instead of Anaconda for better co
    ```bash
    bash Miniforge3-MacOSX-arm64.sh
    ```
-   - Press Enter to review the license
-   - Type `yes` to accept
-   - Press Enter to confirm the installation location
-   - Type `yes` to initialize Miniforge3
+   
+   During installation, you'll see these prompts:
+   
+   - **License Agreement**: Press Enter to review, press Space to scroll, type `yes` to accept
+   
+   - **Installation Location**: Press Enter to accept default `/Users/YOUR_USERNAME/miniforge3`
+     - Or type a custom path if needed
+   
+   - **Shell Initialization**: 
+     ```
+     Do you wish to update your shell profile to automatically initialize conda?
+     ```
+     - **Type `no`** (recommended for research - see explanation above)
+     - This means you'll manually activate conda when needed
 
-3. Activate the changes:
-   ```bash
-   source ~/miniforge3/bin/activate
+3. Set up manual activation:
+   
+   Since you chose not to auto-initialize, you'll see instructions like:
    ```
+   To activate conda's base environment in your current shell session:
+   eval "$(/Users/YOUR_USERNAME/miniforge3/bin/conda shell.YOUR_SHELL_NAME hook)"
+   ```
+   
+   For most Macs (using zsh):
+   ```bash
+   eval "$(/Users/YOUR_USERNAME/miniforge3/bin/conda shell.zsh hook)"
+   ```
+   
+   Replace `YOUR_USERNAME` with your actual username (e.g., `ACEParking`)
 
 4. Verify installation:
    ```bash
    conda --version
+   which conda
    ```
+   
+   You should see the conda version and its location.
 
 ## Step 4: Install Mamba
 
