@@ -220,7 +220,51 @@ mamba --version
 
    Note: If any package fails, note the error and continue with the next one.
 
-## Step 6: Troubleshooting Common M-series Mac Issues
+## Step 6: Verify Installation
+
+1. Activate the environment:
+   ```bash
+   conda activate SEAsnake
+   ```
+
+2. Check installed packages:
+   ```bash
+   conda list
+   ```
+
+3. Test a tool:
+   ```bash
+   fastqc --version
+   ```
+
+## Step 7: Install AWS CLI (Optional)
+
+If you need to access data from AWS S3:
+
+```bash
+brew install awscli
+```
+
+Or download from: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+## Step 8: Environment Management
+
+### Activate environment before use:
+```bash
+conda activate SEAsnake
+```
+
+### Deactivate when done:
+```bash
+conda deactivate
+```
+
+### Remove environment (if needed):
+```bash
+conda env remove --name SEAsnake
+```
+
+## Step 9: Troubleshooting Common M-series Mac Issues
 
 ### Issue: "Package not available for osx-arm64"
 
@@ -256,49 +300,6 @@ If mamba commands fail:
 ~/miniforge3/bin/mamba [command]
 ```
 
-## Step 7: Verify Installation
-
-1. Activate the environment:
-   ```bash
-   conda activate SEAsnake
-   ```
-
-2. Check installed packages:
-   ```bash
-   conda list
-   ```
-
-3. Test a tool:
-   ```bash
-   fastqc --version
-   ```
-
-## Step 8: Install AWS CLI (Optional)
-
-If you need to access data from AWS S3:
-
-```bash
-brew install awscli
-```
-
-Or download from: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-
-## Step 9: Environment Management
-
-### Activate environment before use:
-```bash
-conda activate SEAsnake
-```
-
-### Deactivate when done:
-```bash
-conda deactivate
-```
-
-### Remove environment (if needed):
-```bash
-conda env remove --name SEAsnake
-```
 
 ## Additional Resources
 
