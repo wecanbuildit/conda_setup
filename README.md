@@ -226,6 +226,8 @@ mamba --version
    ```bash
    conda activate SEAsnake
    ```
+   
+   **Note:** Always use `conda activate` (not `mamba activate`) for switching environments. Mamba is for installing packages, conda is for environment management.
 
 2. Check installed packages:
    ```bash
@@ -253,6 +255,8 @@ Or download from: https://docs.aws.amazon.com/cli/latest/userguide/getting-start
 ```bash
 conda activate SEAsnake
 ```
+
+**Important:** Always use `conda activate/deactivate` for environment switching, even though you installed packages with mamba.
 
 ### Deactivate when done:
 ```bash
