@@ -148,9 +148,11 @@ mamba --version
 
 ### Option 1: Install with Mamba (Recommended)
 
-1. First, check if the environment file exists:
+**Tip:** Open a new Terminal tab (Command+T) to keep your conda session active while checking files.
+
+1. **In a new tab**, check if the environment file exists:
    ```bash
-   # Navigate to SEAsnake directory if not already there
+   # Navigate to SEAsnake directory
    cd ~/Desktop/SEAsnake
    
    # Check if the environment file exists
@@ -159,17 +161,23 @@ mamba --version
    
    **If you see `Hissss_env.yaml`, continue with steps below. If not, skip to Option 2.**
 
-2. Fix M-series compatibility issue in the environment file:
+2. Fix M-series compatibility issue in the environment file (still in the new tab):
    ```bash
    # This replaces 'adapterremoval' (incompatible with ARM64) with 'cutadapt'
    sed -i '' 's/- adapterremoval.*/- cutadapt >=5.0/' environment/Hissss_env.yaml
    ```
 
-3. Create the conda environment from the file:
+3. **Switch back to your original Terminal tab** where conda is activated, then create the environment:
    ```bash
+   # Make sure you're in the SEAsnake directory
+   cd ~/Desktop/SEAsnake
+   
+   # Create the environment (you'll be prompted to accept package changes)
    mamba env create --name SEAsnake --file environment/Hissss_env.yaml
    ```
-
+   
+   When prompted, type `y` to accept the package installation plan.
+   
    This may take 10-20 minutes depending on your internet connection.
 
 ### Option 2: Manual Installation (If Option 1 Fails)
