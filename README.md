@@ -318,3 +318,64 @@ If you encounter issues:
 2. Ensure your macOS is up to date
 3. Try using Rosetta 2 for problematic packages
 4. Contact the SEAsnake maintainers with detailed error messages
+
+## Uninstallation Guide
+
+To completely remove SEAsnake and all related components from your computer:
+
+### Step 1: Remove SEAsnake Environment
+```bash
+conda env remove --name SEAsnake
+```
+
+If you created an x86_64 environment:
+```bash
+conda env remove --name SEAsnake_x86
+```
+
+### Step 2: Remove SEAsnake Directory
+```bash
+rm -rf ~/Desktop/SEAsnake
+```
+
+### Step 3: Remove Miniforge/Conda (Optional)
+If you want to completely remove Miniforge:
+
+1. Remove the installation directory:
+   ```bash
+   rm -rf ~/miniforge3
+   ```
+
+2. Remove conda initialization from your shell (if you chose automatic initialization):
+   ```bash
+   # For zsh (default on M-series Macs)
+   sed -i '' '/# >>> conda initialize >>>/,/# <<< conda initialize <<</d' ~/.zshrc
+   
+   # For bash (if applicable)
+   sed -i '' '/# >>> conda initialize >>>/,/# <<< conda initialize <<</d' ~/.bash_profile
+   ```
+
+3. Remove conda configuration directory:
+   ```bash
+   rm -rf ~/.conda
+   rm -rf ~/.condarc
+   ```
+
+### Step 4: Remove Homebrew Packages (Optional)
+If you installed Git or AWS CLI via Homebrew and want to remove them:
+```bash
+brew uninstall git
+brew uninstall awscli
+```
+
+### Step 5: Clean Up Remaining Files
+```bash
+# Remove any conda package caches
+rm -rf ~/Library/Caches/conda
+rm -rf ~/.continuum
+
+# Remove mamba cache
+rm -rf ~/.mamba
+```
+
+After completing these steps, SEAsnake and all related components will be completely removed from your system.
