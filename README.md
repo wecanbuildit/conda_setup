@@ -379,3 +379,67 @@ rm -rf ~/.mamba
 ```
 
 After completing these steps, SEAsnake and all related components will be completely removed from your system.
+
+## Automated Setup Script
+
+For a faster, automated installation, you can use the provided setup script instead of following the manual steps above.
+
+### Using the Setup Script
+
+1. Download or clone this repository:
+   ```bash
+   git clone https://github.com/your-repo/conda_setup.git
+   cd conda_setup
+   ```
+
+2. Make the script executable (if needed):
+   ```bash
+   chmod +x setup.sh
+   ```
+
+3. Run the setup script:
+   ```bash
+   ./setup.sh
+   ```
+
+### What the Script Does
+
+The `setup.sh` script automates the entire installation process:
+
+- ✅ Checks for Git installation (installs via Homebrew if missing)
+- ✅ Downloads and clones the SEAsnake repository
+- ✅ Downloads and installs Miniforge for Apple Silicon
+- ✅ Fixes ARM64 compatibility issues in the environment file
+- ✅ Creates the SEAsnake conda environment with all required packages
+- ✅ Installs mamba for faster package management
+- ✅ Verifies the installation
+- ✅ Creates an activation script (`~/activate_seasnake.sh`) for easy environment switching
+
+### After Running the Script
+
+Once the script completes successfully, you can activate your SEAsnake environment using:
+
+```bash
+source ~/activate_seasnake.sh
+```
+
+Or manually:
+```bash
+eval "$(~/miniforge3/bin/conda shell.zsh hook)"
+conda activate SEAsnake
+```
+
+### Script Requirements
+
+- macOS (optimized for Apple Silicon M-series Macs)
+- Administrator access
+- Internet connection
+- At least 10GB free disk space
+
+### Troubleshooting the Script
+
+If the script fails:
+1. Check your internet connection
+2. Ensure you have administrator privileges
+3. Try running individual commands from the manual installation steps
+4. Check the error messages for specific package installation failures
