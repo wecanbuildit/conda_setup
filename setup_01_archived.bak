@@ -81,7 +81,7 @@ fi
 
 # Step 2: Setup SEAsnake directory
 print_status "Setting up SEAsnake directory..."
-SEASNAKE_DIR="$HOME/Documents/Bioinformatics/SEAsnake"
+SEASNAKE_DIR="$HOME/Desktop/SEAsnake"
 
 if [[ -d "$SEASNAKE_DIR" ]]; then
     print_warning "SEAsnake directory already exists at $SEASNAKE_DIR"
@@ -145,10 +145,8 @@ cd "$SEASNAKE_DIR"
 # Check if environment file exists and fix ARM64 compatibility
 if [[ -f "environment/Hissss_env.yaml" ]]; then
     print_status "Fixing ARM64 compatibility in environment file..."
-    sed -i '' '/- adapterremoval.*/d' environment/Hissss_env.yaml
-    echo "-pip" >> environment/Hissss_env.yaml
-    echo " - cutadapt==4.4" >> environment/Hissss_env.yaml
-
+    sed -i '' 's/- adapterremoval.*/- cutadapt >=5.0/' environment/Hissss_env.yaml
+    
     print_status "Creating environment from YAML file..."
     mamba env create --name SEAsnake --file environment/Hissss_env.yaml
 else
